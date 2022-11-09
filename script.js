@@ -110,13 +110,16 @@ const sliders = () => {
   };
 
   const init = () => {
+    clearInterval(timer)  /// check later
     // start slide at 0
     createDots();
     goToSlide(0);
     activateDot(0);
     autoSlide();
   };
+  clearInterval(timer) /// check later
   init();
+//   autoSlide();
 
   ////// Event handlers
   // Prev slide
