@@ -72,17 +72,10 @@ body {
 
 .operations__content {
   display: none;
-
-  /* JUST PRESENTATIONAL */
-  font-size: 1.7rem;
-  padding: 2.5rem 7rem 6.5rem 7rem;
 }
 
 .operations__content--active {
-  display: grid;
-  grid-template-columns: 7rem 1fr;
-  column-gap: 3rem;
-  row-gap: 0.5rem;
+  display: unset;
 }
 
 /* SLIDER */

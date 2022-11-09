@@ -25,13 +25,15 @@ tabsContainer.addEventListener("click", (e) => {
   document
     .querySelector(`.operations__content--${clicked.dataset.tab}`)
     .classList.add("operations__content--active");
+
+    sliders()
 });
 
 
 
 ///// Slider
 const sliders = () => {
-  const slides = document.querySelectorAll(".slide");
+  const slides = document.querySelector('.operations__content--active').querySelectorAll(".slide");
   const slider = document.querySelector(".slider");
 
   const btnLeft = document.querySelector(".slider__btn--left");
@@ -45,6 +47,11 @@ const sliders = () => {
   ///// Functions
   // Create dots that show in the slides
   const createDots = () => {
+
+    // Safety clause to avoid creating too many dots
+    if (document.querySelector('.dots__dot')) return;
+    
+    // Else
     slides.forEach((_, i) => {
       dotContainer.insertAdjacentHTML(
         "beforeend",
