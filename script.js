@@ -1,3 +1,34 @@
+///// Tabbed components
+const tabsContainer = document.querySelector('.operations__tab-container');
+const tabs = document.querySelectorAll('.operations__tab');
+const tabsContent = document.querySelectorAll('.operations__content');
+
+// Event handler
+tabsContainer.addEventListener("click", (e) => {
+  const clicked = e.target.closest(".operations__tab");
+
+  // Precent Error Incase of container click in no button area
+  if (!clicked) return;
+
+  // Remove active tab
+  tabs.forEach((t) => t.classList.remove("operations__tab--active"));
+
+  // Set Active tab
+  clicked.classList.add("operations__tab--active");
+
+  // Remove Active content
+  tabsContent.forEach((tc) =>
+    tc.classList.remove("operations__content--active")
+  );
+
+  // Set Active content
+  document
+    .querySelector(`.operations__content--${clicked.dataset.tab}`)
+    .classList.add("operations__content--active");
+});
+
+
+
 ///// Slider
 const sliders = () => {
   const slides = document.querySelectorAll(".slide");
