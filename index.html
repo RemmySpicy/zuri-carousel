@@ -10,12 +10,22 @@
 </head>
 <body>
     <section class="section" id="section--3">
-        <div class="section__title section__title--testimonials">
-            <h2 class="section__description">Check our collection of some nice pictues</h2>
-            <h3 class="section__header">
-            Check our collection of some nice pictues
-            </h3>
-        </div>
+        <header class="header">
+            <div class="operations__tab-container">
+                <button
+                  class="btn operations__tab operations__tab--1 operations__tab--active"
+                  data-tab="1"
+                >
+                  <span>01</span>Animals
+                </button>
+                <button class="btn operations__tab operations__tab--2" data-tab="2">
+                  <span>02</span>Ocean
+                </button>
+                <button class="btn operations__tab operations__tab--3" data-tab="3">
+                  <span>03</span>Instant Closing
+                </button>
+              </div>
+        </header>
   
         <div class="slider">
   
@@ -26,8 +36,8 @@
             <div class="slide"><img src="img/img-5.jpg" alt="Photo 5" /></div>
             <div class="slide"><img src="img/img-6.jpg" alt="Photo 6" /></div>
 
-            <button class="slider__btn slider__btn--left">&larr;</button>
-            <button class="slider__btn slider__btn--right">&rarr;</button>
+            <div class="left"><button class="slider__btn slider__btn--left">&larr;</button></div>
+            <div class="right"><button class="slider__btn slider__btn--right">&rarr;</button></div>
             <div class="dots"></div>
         </div>
     </section>

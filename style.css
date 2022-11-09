@@ -4,17 +4,75 @@ body {
     overflow: hidden;
 }
 
+.header {
+    position: absolute;
+    z-index: 1;
+    top: 2rem;
+}
+
+.operations__tab-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .operations__tab {
+    margin-right: 2.5rem;
+    transform: translateY(-50%);
+  }
+
+  .operations__tab span {
+    margin-right: 1rem;
+    font-weight: 600;
+    display: inline-block;
+  }
+  
+  .operations__tab--1 {
+    background-color: #ffcb03;
+  }
+  
+  .operations__tab--1:hover {
+    background-color: #ffbb00;
+  }
+  
+  .operations__tab--3 {
+    background-color: #ff585f;
+    margin: 0;
+  }
+  
+  .operations__tab--3:hover {
+    background-color: #fd424b;
+  }
+  
+  .operations__tab--active {
+    transform: translateY(-66%);
+  }
+  
+  .operations__content {
+    display: none;
+  
+    /* JUST PRESENTATIONAL */
+    font-size: 1.7rem;
+    padding: 2.5rem 7rem 6.5rem 7rem;
+  }
+  
+  .operations__content--active {
+    display: grid;
+    grid-template-columns: 7rem 1fr;
+    column-gap: 3rem;
+    row-gap: 0.5rem;
+  }
+
+
 
 /* SLIDER */
 .slider {
-  /* max-width: 100rem; */
-  max-width: 90vw;
+  max-width: 100rem;
   height: 50rem;
   margin: 0 auto;
   position: relative;
 
   /* IN THE END */
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 .slide {
@@ -29,6 +87,8 @@ body {
 
   /* THIS creates the animation! */
   transition: transform 1s;
+
+  /* backdrop-filter: blur(10%); */
 }
 
 .slide > img {
@@ -36,6 +96,35 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+
+.right, .left {
+    opacity: 0;
+    position: absolute;
+    /* background-color: #333; */
+    height: 100vh;
+    width: 47vw;
+    
+    transition: all 300ms ease-in-out;
+}
+
+.right {
+    top: 0;
+    right: 0;
+    border-top-left-radius: 50vw;
+    border-bottom-left-radius: 50vw;
+}
+
+.left {
+    top: 0;
+    left: 0;
+    border-top-right-radius: 50vw;
+    border-bottom-right-radius: 50vw;
+}
+
+.right:hover, .left:hover {
+    opacity: 1;
 }
 
 .slider__btn {
@@ -52,15 +141,18 @@ body {
   width: 5.5rem;
   font-size: 3.25rem;
   cursor: pointer;
+
+
+  /* transition: all 150ms ease-in-out; */
 }
 
 .slider__btn--left {
-  left: 6%;
+  left: 16%;
   transform: translate(-50%, -50%);
 }
 
 .slider__btn--right {
-  right: 6%;
+  right: 16%;
   transform: translate(50%, -50%);
 }
 
