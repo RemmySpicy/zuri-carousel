@@ -1,7 +1,7 @@
 ///// Tabbed components
-const tabsContainer = document.querySelector('.operations__tab-container');
-const tabs = document.querySelectorAll('.operations__tab');
-const tabsContent = document.querySelectorAll('.operations__content');
+const tabsContainer = document.querySelector(".operations__tab-container");
+const tabs = document.querySelectorAll(".operations__tab");
+const tabsContent = document.querySelectorAll(".operations__content");
 
 // Event handler
 tabsContainer.addEventListener("click", (e) => {
@@ -26,14 +26,14 @@ tabsContainer.addEventListener("click", (e) => {
     .querySelector(`.operations__content--${clicked.dataset.tab}`)
     .classList.add("operations__content--active");
 
-    sliders()
+  sliders();
 });
-
-
 
 ///// Slider
 const sliders = () => {
-  const slides = document.querySelector('.operations__content--active').querySelectorAll(".slide");
+  const slides = document
+    .querySelector(".operations__content--active")
+    .querySelectorAll(".slide");
   const slider = document.querySelector(".slider");
 
   const btnLeft = document.querySelector(".slider__btn--left");
@@ -47,10 +47,9 @@ const sliders = () => {
   ///// Functions
   // Create dots that show in the slides
   const createDots = () => {
-
     // Safety clause to avoid creating too many dots
-    if (document.querySelector('.dots__dot')) return;
-    
+    if (document.querySelector(".dots__dot")) return;
+
     // Else
     slides.forEach((_, i) => {
       dotContainer.insertAdjacentHTML(
@@ -87,6 +86,7 @@ const sliders = () => {
 
     goToSlide(curSlide);
     activateDot(curSlide);
+    autoSlide();
   };
 
   const prevSlide = () => {
@@ -95,6 +95,18 @@ const sliders = () => {
 
     goToSlide(curSlide);
     activateDot(curSlide);
+    autoSlide();
+  };
+
+  // Interval function
+  let timer;
+  const setTimer = () => {
+    timer = setInterval(nextSlide, 4500);
+  };
+
+  const autoSlide = () => {
+    clearInterval(timer);
+    setTimer();
   };
 
   const init = () => {
@@ -102,6 +114,7 @@ const sliders = () => {
     createDots();
     goToSlide(0);
     activateDot(0);
+    autoSlide();
   };
   init();
 
